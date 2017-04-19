@@ -1,0 +1,112 @@
+﻿@model CustomerReportQuery
+@{
+    ViewData["Title"] = "使用 Blob 進行檔案下載";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <h2>使用 Ajax 搭配 Blob 進行檔案下載並呈現讀取資訊</h2>
+        
+        <div class="panel panel-default">
+            <div class="panel-body">
+                使用 jQuery ajax 將資料 POST 到後端程式碼取得回傳的資料。<br />
+                將 base64 字串轉換成 byte 資料後儲存到 Blob 物件後，取得 Blob 物件的 URL 下載路徑並使用 jQuery 點選超連結觸發下載檔案。
+            </div>
+        </div>
+
+        <h3>請求物件</h3>
+        <pre>
+{
+    "DateStart":"2017/04/01",
+    "DateEnd":"2017/04/30"
+}</pre>
+        <h3>回復物件</h3>
+        <pre>
+{
+    "filename":"filename.pdf",
+    "content": {base64 string}
+}
+</pre>
+
+        <div>
+            <h3>下載報表檔案</h3>
+
+            <div class="form-group">
+                <label for="DateStart">起始日期</label>
+                <input type="date" class="form-control" asp-for="DateStart" />
+            </div>
+            <div class="form-group">
+                <label for="DateEnd">結束日期</label>
+                <input type="date" class="form-control" asp-for="DateEnd" />
+            </div>
+
+            <button id="btn-export" type="button" class="btn btn-default">點我下載</button>
+        </div>
+
+        <!-- 隱藏下載檔案的超連結 -->
+        <a id="file-link" style="display:none;">下載檔案</a>
+    </div>
+</div>
+
+@section scripts{
+    <environment names="Development">
+        <script src="~/lib/blockUI/jquery.blockUI.js"></script>
+    </environment>
+    <script>
+        //將 base64 文字轉換成 byte 陣列才可以儲存到 Blob 物件
+        function base64ToArrayBuffer(base64) {
+
+            //window.atob 在 IE 瀏覽器不支援
+            var binaryString = window.atob(base64);
+
+            var binaryLen = binaryString.length;
+            var bytes = new Uint8Array(binaryLen);
+            for (var i = 0; i < binaryLen; i++) {
+                var ascii = binaryString.charCodeAt(i);
+                bytes[i] = ascii;
+            }
+            return bytes;
+        }
+
+        $(function () {
+            var _export = $("#btn-export");
+            var _fileLink = $("#file-link");
+
+            _export.click(function () {
+
+                var _startDate = $("#DateStart").val();
+                var _endDate = $("#DateEnd").val();
+                var _json = {
+                    "DateStart": _startDate,
+                    "DateEnd": _endDate
+                };
+
+                $.ajax({
+                    type: "POST",
+                    contentType: "application/json",
+                    data: JSON.stringify(_json),
+                    url: "/Home/GetPdf",
+                    beforeSend: function() {
+                        $.blockUI();
+                    },
+                    success: function (res) {
+                        var _filename = res.filename;
+                        var _buffer = base64ToArrayBuffer(res.content)
+
+                        //新增 Blob 物件，需為陣列 [ ... ]
+                        var _blob = new Blob([_buffer], { type: "application/pdf" });
+                        var _blobUrl = URL.createObjectURL(_blob);
+
+                        _fileLink.attr({ href: _blobUrl, download: _filename });
+                        _fileLink[0].click();
+
+                        $.unblockUI();
+                    },
+                    failure: function (res) {
+                        console.log(res.d);
+                    }
+                })
+            });
+        });
+    </script>
+}
