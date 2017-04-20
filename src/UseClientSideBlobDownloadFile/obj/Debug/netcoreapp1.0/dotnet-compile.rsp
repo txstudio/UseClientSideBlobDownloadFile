@@ -1,5 +1,5 @@
---temp-output:c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\obj\Debug\netcoreapp1.0\
---out:c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\bin\Debug\netcoreapp1.0\UseClientSideBlobDownloadFile.dll
+--temp-output:C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\obj\Debug\netcoreapp1.0\
+--out:C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\bin\Debug\netcoreapp1.0\UseClientSideBlobDownloadFile.dll
 --define:DEBUG
 --define:TRACE
 --define:NETCOREAPP1_0
@@ -190,11 +190,11 @@
 --reference:C:\Users\WSH\.nuget\packages\System.Threading.Timer\4.0.1\ref\netstandard1.2\System.Threading.Timer.dll
 --reference:C:\Users\WSH\.nuget\packages\System.Xml.ReaderWriter\4.0.11\ref\netstandard1.3\System.Xml.ReaderWriter.dll
 --reference:C:\Users\WSH\.nuget\packages\System.Xml.XDocument\4.0.11\ref\netstandard1.3\System.Xml.XDocument.dll
---resource:"c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\obj\Debug\netcoreapp1.0\UseClientSideBlobDownloadFiledotnet-compile.deps.json",UseClientSideBlobDownloadFile.deps.json
-c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Program.cs
-c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Startup.cs
-c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Controllers\HomeController.cs
-c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Models\CustomerReportQuery.cs
-c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Models\FileContent.cs
-c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Reports\CustomerReport.cs
-c:\users\wsh\documents\github\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Storages\FileStorage.cs
+--resource:"C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\obj\Debug\netcoreapp1.0\UseClientSideBlobDownloadFiledotnet-compile.deps.json",UseClientSideBlobDownloadFile.deps.json
+C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Program.cs
+C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Startup.cs
+C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Controllers\HomeController.cs
+C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Models\CustomerReportQuery.cs
+C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Models\FileContent.cs
+C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Reports\CustomerReport.cs
+C:\Users\WSH\Documents\GitHub\UseClientSideBlobDownloadFile\src\UseClientSideBlobDownloadFile\Storages\FileStorage.cs
